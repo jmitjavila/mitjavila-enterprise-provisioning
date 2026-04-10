@@ -18,13 +18,14 @@ Summary
 - Live website is deployed and this note acts as the client hub for follow-up edits, content revisions, and ongoing support.
 
 Active services
-- Website presence and content revision support (service note not formalized yet)
+- [[04-Services/Website-Presence-and-Maintenance|Website Presence & Maintenance]] — live site support, revision work, and lightweight ongoing maintenance
 
 Active projects
 - Website revisions and client feedback follow-up
 
 Files & links
 - Live site: https://jmitjavila.github.io/radiant-beauty-wellness-frisco/
+- Service note: [[04-Services/Website-Presence-and-Maintenance]]
 - Create or update a dedicated project note under `02-Projects/` if we want a fuller build history
 - Track repo location, assets, and revision requests alongside that project note
 
