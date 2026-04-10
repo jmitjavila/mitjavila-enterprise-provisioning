@@ -1,0 +1,17 @@
+use_default_settings: true
+
+general:
+  debug: false
+  instance_name: Jose's SearXNG
+
+search:
+  safe_search: 1
+  autocomplete: "duckduckgo"
+  formats:
+    - html
+    - json
+
+server:
+  secret_key: "94fca89e426076b7ce22c744ba970824bb3cbe251f9bdc8e1de11f32b2c23b44"
+  limiter: false
+  image_proxy: true
