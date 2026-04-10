@@ -1,14 +1,14 @@
 # Social Media Management Service — Complete Guide
 
-**Status:** Facebook (Active), Instagram (Ready to Deploy)  
+**Status:** Facebook (Active), Instagram (Ready to Deploy), LinkedIn (Planning / Setup)  
 **Pilot Customer:** Mitjavila Enterprise  
-**Last Updated:** 2026-04-06
+**Last Updated:** 2026-04-10
 
 ---
 
 ## 📚 Documentation Overview
 
-This folder contains everything needed to run a social media management service for small businesses. All materials are production-ready and client-facing.
+This folder contains the operating materials for a social media management service for small businesses. Facebook is active, Instagram is set up, and LinkedIn is now being added as the next platform.
 
 ### Core Documents
 
@@ -22,6 +22,7 @@ This folder contains everything needed to run a social media management service 
 | **INSTAGRAM_CONTENT_STRATEGY.md** | Content strategy for Instagram | Content creators, clients | ✅ Ready |
 | **INSTAGRAM_QUICK_REFERENCE.md** | Quick reference card (printable) | Daily use | ✅ Ready |
 | **INSTAGRAM_DEPLOYMENT_SUMMARY.md** | What was created & how to use it | Jose, decision makers | ✅ Ready |
+| **LINKEDIN_SETUP_PLAYBOOK.md** | LinkedIn company-page setup, OAuth, posting workflow | Implementation team | 🚧 Draft |
 
 ---
 
@@ -39,6 +40,12 @@ This folder contains everything needed to run a social media management service 
 2. Follow: INSTAGRAM_SETUP_PLAYBOOK.md (1 hour)
 3. Test: Run API tests from Step 3.3
 4. Result: Same as Facebook — ready to post
+
+**LinkedIn (Now starting):**
+1. Read: LINKEDIN_SETUP_PLAYBOOK.md
+2. Decide whether the pilot should post to a company page, personal profile, or both
+3. Configure LinkedIn app + OAuth scopes
+4. Test text-only posting first, then media posting later
 
 ### For Posting (Daily/Weekly)
 
@@ -80,6 +87,7 @@ This folder contains everything needed to run a social media management service 
 ├── INSTAGRAM_CONTENT_STRATEGY.md (Instagram strategy)
 ├── INSTAGRAM_QUICK_REFERENCE.md (printable cheat sheet)
 ├── INSTAGRAM_DEPLOYMENT_SUMMARY.md (what was created)
+├── LINKEDIN_SETUP_PLAYBOOK.md (LinkedIn onboarding + posting flow)
 │
 ├── META_APP_TROUBLESHOOTING.md (shared troubleshooting)
 │
@@ -92,6 +100,7 @@ This folder contains everything needed to run a social media management service 
         ├── POSTING_SCHEDULE.md (timing & frequency)
         ├── post-to-facebook.sh (Facebook posting script)
         ├── post-to-instagram.sh (Instagram posting script)
+        ├── post-to-linkedin.sh (LinkedIn posting script, text-only v1)
         └── [other client-specific files]
 ```
 
@@ -102,10 +111,11 @@ This folder contains everything needed to run a social media management service 
 ### I want to set up a new client
 
 **Steps:**
-1. Choose Facebook, Instagram, or both (SERVICE_SCHEMA.md explains tiers)
+1. Choose Facebook, Instagram, LinkedIn, or a combination (SERVICE_SCHEMA.md explains tiers)
 2. For Facebook: Follow SETUP_PLAYBOOK.md
 3. For Instagram: Follow INSTAGRAM_SETUP_PLAYBOOK.md
-4. Both together: Do Facebook first, then Instagram (reuses same Meta App)
+4. For LinkedIn: Follow LINKEDIN_SETUP_PLAYBOOK.md
+5. For multi-platform rollout: Do Facebook first, then Instagram, then LinkedIn
 
 **Time:** 2-3 hours end-to-end (including waiting for API permissions)
 
@@ -120,6 +130,17 @@ This folder contains everything needed to run a social media management service 
 6. Log in ENGAGEMENT_LOG.md
 
 **Time:** 5-10 minutes per post
+
+### I want to post to LinkedIn
+
+**Steps:**
+1. Confirm LinkedIn company page access and OAuth are already configured
+2. Start with a text-only business post using `post-to-linkedin.sh`
+3. Use concise, professional copy focused on credibility, outcomes, and clear calls to action
+4. Verify the post appears on the company page
+5. Log the post and any engagement in ENGAGEMENT_LOG.md
+
+**Time:** 5-10 minutes per text post
 
 ### I want to monitor engagement
 
@@ -170,6 +191,15 @@ This folder contains everything needed to run a social media management service 
 - **Link:** Connected to Facebook Business Page
 - **API Access:** Via Meta App (same app as Facebook)
 - **Credentials:** Account ID + Page Access Token
+
+### LinkedIn Company Page Access (What You Need)
+
+- **Type:** LinkedIn Company Page
+- **Access:** Account used for OAuth must have a page role such as ADMINISTRATOR or CONTENT_ADMIN
+- **API Auth:** OAuth 2.0 bearer token
+- **Permissions:** `w_organization_social` for posting, `r_organization_social` for reads
+- **Headers:** `Linkedin-Version` and `X-Restli-Protocol-Version: 2.0.0`
+- **Phase 1 Scope:** Text-only company-page posts first, media posting second
 
 ### Rate Limits (Don't Hit Them)
 
@@ -237,18 +267,18 @@ This folder contains everything needed to run a social media management service 
 
 ## 🤝 Platform Differences
 
-### Facebook vs. Instagram
+### Facebook vs. Instagram vs. LinkedIn
 
-| Aspect | Facebook | Instagram |
-|--------|----------|-----------|
-| **Primary audience** | Family, broad | Visual, entrepreneurs |
-| **Caption style** | 150-250 words, friendly | 100-150 words, punchy |
-| **Content type** | Text + images + links | Visual-first, video-heavy |
-| **Hashtags** | 3-5 (optional) | 20-30 (critical for reach) |
-| **Best engagement** | Educational, personal | Motivational, carousels, Reels |
-| **Posting frequency** | 2-4x/week | 3-4x/week |
+| Aspect | Facebook | Instagram | LinkedIn |
+|--------|----------|-----------|----------|
+| **Primary audience** | Family, broad | Visual, entrepreneurs | Professional, B2B, credibility-focused |
+| **Caption style** | 150-250 words, friendly | 100-150 words, punchy | 100-250 words, professional and insight-led |
+| **Content type** | Text + images + links | Visual-first, video-heavy | Expertise, wins, case studies, hiring, announcements |
+| **Hashtags** | 3-5 (optional) | 20-30 (critical for reach) | 3-5 relevant tags max |
+| **Best engagement** | Educational, personal | Motivational, carousels, Reels | Practical insights, proof of work, professional positioning |
+| **Posting frequency** | 2-4x/week | 3-4x/week | 2-4x/week |
 
-**Strategy:** Different platforms = different voice, but same core message.
+**Strategy:** Different platforms need different packaging, but the business message should still feel like the same brand.
 
 ---
 
@@ -324,6 +354,7 @@ A: Instagram will reject it (error message) or shadow-ban it. Check for banned w
 | 1.0 | 2026-04-02 | Facebook schema + playbook |
 | 2.0 | 2026-04-06 | Added Instagram (API setup, playbook, strategy) |
 | 2.1 | 2026-04-06 | Added quick reference + deployment summary |
+| 3.0 | 2026-04-10 | Began LinkedIn rollout with setup playbook and posting scaffold |
 
 ---
 
@@ -339,8 +370,8 @@ A: Instagram will reject it (error message) or shadow-ban it. Check for banned w
 
 **Ready to go! 🚀**
 
-Start with **INSTAGRAM_SETUP_PLAYBOOK.md** to set up Instagram for Mitjavila Enterprise.
+Start with **LINKEDIN_SETUP_PLAYBOOK.md** to begin LinkedIn onboarding for Mitjavila Enterprise.
 
-Then use **INSTAGRAM_CONTENT_STRATEGY.md** to plan content and **INSTAGRAM_QUICK_REFERENCE.md** for daily posting.
+Then use **SERVICE_SCHEMA.md** to decide how LinkedIn fits into the client package, and use the client folder scripts to test posting flows platform by platform.
 
 Good luck! 🎯

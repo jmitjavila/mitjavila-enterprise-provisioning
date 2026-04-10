@@ -3,7 +3,7 @@
 **Client Name:** Mitjavila Enterprise (ME)  
 **Status:** Pilot / First Customer  
 **Setup Date:** 2026-04-03  
-**Service:** Social Media Management (Facebook + Instagram)
+**Service:** Social Media Management (Facebook + Instagram + LinkedIn in progress)
 
 ---
 
@@ -16,6 +16,19 @@
 | **Primary Contact** | Jose Luis (jl.mitjavila) |
 | **Timezone** | America/Chicago |
 | **Service Tier** | Custom (Pilot) |
+
+---
+
+## LinkedIn Company Page Details
+
+| Field | Value |
+|-------|-------|
+| **Company Page Name** | Mitjavila Enterprise |
+| **LinkedIn Page URL** | [To be added] |
+| **Organization URN** | [To be added] |
+| **Primary Posting Mode** | Company Page |
+| **Page Role Verified** | [Pending] |
+| **Account Status** | 🚧 Setup in progress |
 
 ---
 
@@ -66,11 +79,34 @@ Time: 2026-04-06 15:30:00 CDT
 
 ---
 
+## LinkedIn Posting Workflow
+
+### Posting Script
+```bash
+cd /home/jose/.openclaw/workspace/services/social-media/clients/mitjavila-enterprise/
+bash post-to-linkedin.sh "Your LinkedIn post text here"
+```
+
+### Example
+```bash
+bash post-to-linkedin.sh "We help businesses strengthen their digital presence with clearer systems, more consistent communication, and practical execution."
+```
+
+### Expected Response
+```
+✅ LinkedIn post published!
+Post URN: urn:li:share:...
+Author: urn:li:organization:...
+Time: 2026-04-10 16:30:00 CDT
+```
+
+---
+
 ## API Credentials
 
 ⚠️ **IMPORTANT:** These credentials are sensitive. Store securely and never commit to version control.
 
-EAAZAnZCWDp6BUBRB9eNGSy9coAhZCz1qLZBz3kJXjZABk4CmDMS5XRI7HxScYmbWkbRofNaHP8IZCJZCxMjS1g4XzynCgFpu04mLRBPoi4aX2p3slRb0i6rZANZA2rFsTzdLeY9VwsEq3ek3NhsaOvoQUaRVoe4mcJC3FelIDBHNk4HcSnZCNYWlyzRfgFs0lzkR0OFEKOqa1cstZBIjkbKb7ln3wGTMwO0Syu1rGghrwZDZD
+[REDACTED - store live token only in .env.local]
 
 ### Meta App Details
 
@@ -84,9 +120,8 @@ EAAZAnZCWDp6BUBRB9eNGSy9coAhZCz1qLZBz3kJXjZABk4CmDMS5XRI7HxScYmbWkbRofNaHP8IZCJZ
 ### Page Access Token
 
 ```
-[PASTE YOUR PAGE ACCESS TOKEN HERE]
+[REDACTED - store live token only in .env.local]
 ```
-1803187810592789|BAkswc5FquM4PelFs76pSJORqA0
 
 **Token Permissions:**
 - ✅ pages_manage_posts (create posts)
@@ -174,6 +209,11 @@ EAAZAnZCWDp6BUBRB9eNGSy9coAhZCz1qLZBz3kJXjZABk4CmDMS5XRI7HxScYmbWkbRofNaHP8IZCJZ
 - [x] Create posting script (post-to-facebook.sh)
 - [x] Set up engagement monitoring template (ENGAGEMENT_LOG.md)
 - [x] Test successful post (2026-04-03)
+- [ ] Create LinkedIn Developer app
+- [ ] Configure LinkedIn OAuth scopes and redirect URI
+- [ ] Confirm company-page admin role + organization URN
+- [ ] Add LinkedIn posting credentials to `.env.local`
+- [ ] Test successful text-only LinkedIn post
 - [ ] Define response policies with client
 - [ ] Schedule first batch of posts
 
@@ -249,7 +289,8 @@ EAAZAnZCWDp6BUBRB9eNGSy9coAhZCz1qLZBz3kJXjZABk4CmDMS5XRI7HxScYmbWkbRofNaHP8IZCJZ
 
 ---
 
-**Document Version:** 1.1  
-**Last Updated:** 2026-04-06  
-**Status:** ✅ LIVE — Facebook + Instagram Ready
+**Document Version:** 1.2  
+**Last Updated:** 2026-04-10  
+**Status:** ✅ Facebook + Instagram active/ready, LinkedIn onboarding started
 **Instagram Setup:** Complete — Credentials configured, posting script ready
+**LinkedIn Setup:** In progress — company page details and OAuth still need to be completed

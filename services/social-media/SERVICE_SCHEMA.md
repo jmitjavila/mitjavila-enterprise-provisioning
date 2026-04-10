@@ -3,10 +3,10 @@
 ## Overview
 
 **Service Name:** Social Media Management (SMM)  
-**Current Platforms:** Facebook, Instagram (Phase 1-2)  
+**Current Platforms:** Facebook, Instagram, LinkedIn (Phase 1-3)  
 **Status:** Pilot (ME as first customer)  
 **Created:** 2026-04-02  
-**Updated:** 2026-04-06 (Instagram added)
+**Updated:** 2026-04-10 (LinkedIn added to service scope)
 
 ---
 
@@ -161,7 +161,7 @@
 - **Price:** TBD
 
 ### Tier 2: Standard
-- 1-2 platforms (Facebook + Instagram)
+- 1-2 platforms (Facebook, Instagram, or LinkedIn)
 - 12-16 posts/month (combined)
 - Daily engagement monitoring
 - Bi-weekly analytics report
@@ -170,7 +170,7 @@
 - **Price:** TBD
 
 ### Tier 3: Premium
-- 3+ platforms (Facebook, Instagram, LinkedIn)
+- 3 platforms (Facebook + Instagram + LinkedIn)
 - 20+ posts/month
 - Daily engagement + message management
 - Weekly analytics + strategy calls
@@ -219,20 +219,31 @@
 - **Content Focus:** Images (1080x1350px), Carousels, Reels, Stories
 - **Best Engagement:** Motivational content, educational carousels, team culture
 
+### LinkedIn
+- **Setup:** LINKEDIN_SETUP_PLAYBOOK.md
+- **Playbook:** LINKEDIN_SETUP_PLAYBOOK.md
+- **Key Differences:** Professional audience, credibility-driven, stronger fit for B2B and authority building
+- **Posting Frequency:** 2-4x/week recommended
+- **Phase 1 Content Focus:** Text posts, business updates, proof of work, lessons learned, announcements
+- **Phase 1 API Scope:** Company-page posting with `w_organization_social`
+- **Phase 2 Content Focus:** Media posts, documents, case studies, lead-generation workflow
+- **Best Engagement:** Practical insights, before/after results, client wins, professional positioning
+
 ---
 
 ## Next Steps
 
 1. **Pilot Setup:** ✅ Configure ME's Facebook page for API access (done)
 2. **Instagram Setup:** 🚀 Configure ME's Instagram for API access (ready to launch)
-3. **Test Workflow:** Run 2-4 weeks of live posting on both platforms
-4. **Document Learnings:** Update this schema based on real-world experience
-5. **Refine & Codify:** Lock in templates, timelines, and processes for both platforms
-6. **Repeat:** Apply schema to next client with minimal friction (Facebook + Instagram combo)
+3. **LinkedIn Setup:** 🚧 Configure ME's LinkedIn company-page access and text-post workflow
+4. **Test Workflow:** Run 2-4 weeks of live posting across active platforms
+5. **Document Learnings:** Update this schema based on real-world experience
+6. **Refine & Codify:** Lock in templates, timelines, and processes for each platform
+7. **Repeat:** Apply schema to next client with minimal friction (Facebook + Instagram + LinkedIn as needed)
 
 ---
 
-**Schema Version:** 2.0  
-**Last Updated:** 2026-04-06  
+**Schema Version:** 3.0  
+**Last Updated:** 2026-04-10  
 **Pilot Customer:** Mitjavila Enterprise (ME)  
-**Status:** Facebook Phase 1 Active, Instagram Ready to Deploy
+**Status:** Facebook Active, Instagram Ready to Deploy, LinkedIn In Planning / Setup
