@@ -1,0 +1,27 @@
+name: Deploy provisioning to server
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup SSH agent
+        uses: webfactory/ssh-agent@v0.8.1
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+      - name: Sync provisioning folder to server
+        run: |
+          set -e
+          rsync -avz --delete --exclude='.git' provisioning/ "${{ secrets.DEPLOY_USER }}@${{ secrets.SERVER_HOST }}:${{ secrets.TARGET_DIR }}/provisioning/"
+
+      - name: Run remote deploy
+        run: |
+          set -e
+          ssh -o StrictHostKeyChecking=no "${{ secrets.DEPLOY_USER }}@${{ secrets.SERVER_HOST }}" "cd '${{ secrets.TARGET_DIR }}/provisioning/searxng' && docker compose pull || true && docker compose up -d --remove-orphans"
