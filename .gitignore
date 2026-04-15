@@ -1,0 +1,5 @@
+# Ignore real searxng secrets
+provisioning/searxng/core-config/settings.yml
+
+# Local health log
+provisioning/searxng/health.log
